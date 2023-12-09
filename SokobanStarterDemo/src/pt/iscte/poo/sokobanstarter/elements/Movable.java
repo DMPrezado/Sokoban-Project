@@ -1,7 +1,7 @@
 package pt.iscte.poo.sokobanstarter.elements;
 
 import pt.iscte.poo.utils.Point2D;
-
+import pt.iscte.poo.gui.ImageMatrixGUI;
 import pt.iscte.poo.sokobanstarter.GameElement;
 import pt.iscte.poo.sokobanstarter.GameEngine;
 import pt.iscte.poo.sokobanstarter.interfaces.Interactable;
@@ -37,16 +37,15 @@ public abstract class Movable extends GameElement{
 		return objectInThisPoint(getPosition().plus(direction.asVector())).getLayer()<3;
 	}
 	
-//	public Point2D nextPosition(GameElement nextElement, Direction direction) {
-//		if(nextElement instanceof Teleporte)
-//			return Teleporte.outroTeleporte((Teleporte)nextElement).getPosition();
-//		return getPosition().plus(direction.asVector());
-//	}
 
-
-	//PERIGO
 	public void move(Point2D position) {
-		setPosition(position);
+		Direction direction = Direction.directionFor(GameEngine.getInstance().getLastKeyPressed());
+		if(this instanceof Empilhadora) {
+			((Empilhadora)this).move(position, direction);
+		}else {
+			setPosition(position);
+		}
+			
 	}
 	
 }

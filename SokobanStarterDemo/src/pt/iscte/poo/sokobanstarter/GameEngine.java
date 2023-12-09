@@ -21,6 +21,7 @@ public class GameEngine implements Observer {
 	private Empilhadora bobcat;
 	private Level level;
 	private Player player;
+	private int lastKeyPressed;
 	
 
 
@@ -42,12 +43,13 @@ public class GameEngine implements Observer {
 		String nome = gui.askUser("Username");
 		player = new Player(nome, 0);
 		
+		levelInit(Integer.valueOf(gui.askUser("Nível Inicial")));
 		
 		gui.setSize(GRID_HEIGHT, GRID_WIDTH);
 		gui.registerObserver(this); 
 		gui.go(); 
 
-		levelInit(Integer.valueOf(gui.askUser("Nível Inicial")));
+		
 	}
 	
 	public void levelInit(int i) {
@@ -73,10 +75,10 @@ public class GameEngine implements Observer {
 	@Override
 	public void update(Observed source) {
 		if(source!=null) {
-			int key = gui.keyPressed();
-			if(key==81)levelFailed();//Letra Q
-			if(Direction.isDirection(key))
-				bobcat.move(Direction.directionFor(key));
+			lastKeyPressed = gui.keyPressed();
+			if(lastKeyPressed==81)levelFailed();//Letra Q
+			if(Direction.isDirection(lastKeyPressed))
+				bobcat.move(Direction.directionFor(lastKeyPressed));
 		}
 		gui.setStatusMessage(String.format("Sokoban - %s - Energia:%3d%% - Moves: %3d - Tempo: %3d", player.getName(), bobcat.getEnergia(), player.getMoves(), level.getTimer().getSeconds()));
 		gui.update(); 
@@ -93,6 +95,7 @@ public class GameEngine implements Observer {
 	public ImageMatrixGUI getGui() {return gui;}
 	public Level getLevel() {return level;}
 	public Player getPlayer() {return player;}
+	public int getLastKeyPressed() {return lastKeyPressed;}
 	
 	
 	/*******************************Level Methods*******************************/

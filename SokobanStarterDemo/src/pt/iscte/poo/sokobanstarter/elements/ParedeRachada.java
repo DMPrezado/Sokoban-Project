@@ -17,6 +17,7 @@ public class ParedeRachada extends Parede implements Interactable{
 	public void interact(GameElement element) {
 		if(!(element instanceof Empilhadora))return;
 		if(Martelo.getMartelo().wasPicked()) {
+			((Movable)element).move(getPosition());
 			ImageMatrixGUI.getInstance().removeImage(this);
 			ImageMatrixGUI.getInstance().update();
 			GameEngine.getInstance().getTileList().remove(this);

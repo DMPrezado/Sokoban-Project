@@ -17,7 +17,7 @@ public class Martelo extends GameElement implements Pickable{
 
 	@Override
 	public void pick(GameElement element) {
-		if(!(element instanceof Empilhadora))return;
+		if(!(element instanceof Empilhadora)) {((Movable)element).move(getPosition());return;}
 		super.addPickable(martelo);
 		((Movable)element).move(getPosition());
 		ImageMatrixGUI.getInstance().removeImage(this);

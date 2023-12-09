@@ -16,6 +16,11 @@ public class Empilhadora extends Movable {
 		this.energia=100;
 	}
 	
+	public void move(Point2D position, Direction direction) {
+		setPosition(position);
+		setName(changeImage(direction));
+	}
+	
 	
 	public void move(Direction direction) {
 		GameElement nextElement = objectInThisPoint(getPosition().plus(direction.asVector()));
