@@ -22,10 +22,10 @@ public abstract class Movable extends GameElement{
 		if(nextElement instanceof Interactable)
 			((Interactable) nextElement).interact(this);
 		
-		if(nextElement instanceof Pickable)
+		else if(nextElement instanceof Pickable)
 			((Pickable) nextElement).pick(this);
-		
-		setPosition(nextPosition(nextElement,direction));
+		else
+		setPosition(getPosition().plus(direction.asVector()));
 		GameEngine.getInstance().getGui().update();
 		
 	}
@@ -37,10 +37,16 @@ public abstract class Movable extends GameElement{
 		return objectInThisPoint(getPosition().plus(direction.asVector())).getLayer()<3;
 	}
 	
-	public Point2D nextPosition(GameElement nextElement, Direction direction) {
-		if(nextElement instanceof Teleporte)
-			return Teleporte.outroTeleporte((Teleporte)nextElement).getPosition();
-		return getPosition().plus(direction.asVector());
+//	public Point2D nextPosition(GameElement nextElement, Direction direction) {
+//		if(nextElement instanceof Teleporte)
+//			return Teleporte.outroTeleporte((Teleporte)nextElement).getPosition();
+//		return getPosition().plus(direction.asVector());
+//	}
+
+
+	//PERIGO
+	public void move(Point2D position) {
+		setPosition(position);
 	}
 	
 }

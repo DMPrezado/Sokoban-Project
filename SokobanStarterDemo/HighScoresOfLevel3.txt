@@ -1,4 +1,0 @@
-HIGHSCORES
-asdf,70
-ert,72
-cRM,72

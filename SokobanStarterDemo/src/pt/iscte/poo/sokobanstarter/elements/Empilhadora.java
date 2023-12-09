@@ -20,9 +20,6 @@ public class Empilhadora extends Movable {
 	public void move(Direction direction) {
 		GameElement nextElement = objectInThisPoint(getPosition().plus(direction.asVector()));
 		
-		if(nextElement instanceof Teleporte)
-			nextElement = Teleporte.nextElement(nextElement);
-		
 		if(nextElement instanceof Movable && ((Movable) nextElement).canMove(direction)) {
 			((Movable) nextElement).move(direction);
 			setEnergia(--energia);
@@ -30,8 +27,7 @@ public class Empilhadora extends Movable {
 		
 		if(nextElement instanceof Interactable)
 			((Interactable) nextElement).interact(this);
-		
-		if(this.canMove(direction)) {
+		else if(this.canMove(direction)) {
 			super.move(direction);
 			setName(changeImage(direction));
 			GameEngine.getInstance().getPlayer().increaseMoves();

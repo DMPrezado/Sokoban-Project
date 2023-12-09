@@ -16,6 +16,7 @@ public class Bateria extends GameElement implements Interactable {
 	public void interact(GameElement element) {
 		if(!(element instanceof Empilhadora))return;
 		
+		((Movable)element).move(getPosition());
 		((Empilhadora)element).setEnergia(((Empilhadora)element).getEnergia()+50);
 			
 		ImageMatrixGUI.getInstance().removeImage(this);

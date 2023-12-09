@@ -61,13 +61,26 @@ public abstract class GameElement implements ImageTile {
 		return lista;
 	}
 	
-	public static GameElement objectInThisPoint(Point2D pos) {
-		List<GameElement> lista = listOfObjectsInThisPoint(pos);
-		for (GameElement gameElement : lista)
-			if(gameElement.getLayer()>1)
-				return gameElement;
-		return null;
-	}
+//	public static GameElement objectInThisPoint(Point2D pos) {
+//		List<GameElement> lista = listOfObjectsInThisPoint(pos);
+//		for (GameElement gameElement : lista)
+//			if(gameElement.getLayer()>1)
+//				System.out.println(gameElement);
+//				return gameElement;
+//		return null;
+//	}
+	
+	public GameElement objectInThisPoint(Point2D pos) {
+        List<GameElement> lista = listOfObjectsInThisPoint(pos);
+        if(lista.size()==0)return null;
+        GameElement topElement = lista.get(0);
+        for (GameElement gameElement : lista)
+            if(gameElement.getLayer()> topElement.getLayer())
+                topElement = gameElement;
+        if(topElement.getLayer() > 1)
+            return topElement;
+        return null;
+    }
 	
 	
 	

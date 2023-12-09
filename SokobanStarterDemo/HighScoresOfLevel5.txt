@@ -1,4 +1,0 @@
-HIGHSCORES
-tyu,0
-t,14
-t,15

@@ -1,4 +1,0 @@
-HIGHSCORES
-dfg,34
-t,34
-not,34

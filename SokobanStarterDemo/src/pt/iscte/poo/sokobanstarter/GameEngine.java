@@ -74,7 +74,7 @@ public class GameEngine implements Observer {
 	public void update(Observed source) {
 		if(source!=null) {
 			int key = gui.keyPressed();
-			
+			if(key==81)levelFailed();//Letra Q
 			if(Direction.isDirection(key))
 				bobcat.move(Direction.directionFor(key));
 		}

@@ -1,4 +1,0 @@
-HIGHSCORES
-cRM,66
-f,68
-t,74

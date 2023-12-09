@@ -16,6 +16,7 @@ public class Buraco extends GameElement implements Interactable{
 	@Override
 	public void interact(GameElement element) {
 		if(element instanceof Palete) {
+			((Movable)element).move(getPosition());
 			GameEngine.getInstance().getTileList().remove(element);
 			GameEngine.getInstance().getTileList().remove(this);
 		}

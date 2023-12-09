@@ -23,7 +23,6 @@ public class Timer {
 	                }
 	                zero();
 	            } catch (InterruptedException e) {}
-	            
 	        });
 	        thread.start();
 	    }
@@ -37,10 +36,10 @@ public class Timer {
 	
 	public void stop() {
 		thread.interrupt();
-		System.out.println("asdasdasdasdasdasdasdasdasdasdasdasdasd");
 	}
 	
 	public void resetTimer() {
+		stop();
 		seconds = initialTime;
 		start();
 	}

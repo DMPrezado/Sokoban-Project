@@ -1,4 +1,0 @@
-HIGHSCORES
-t,22
-cRM,22
-y,28
