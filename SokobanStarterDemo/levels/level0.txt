@@ -1,0 +1,10 @@
+=########=
+##XC  CC## 
+# C C CC #
+#CC  CCC #
+#CC C C C#
+# C CC C #
+# CC  C C#
+#C CC CCC#
+##C C CE##
+=########=
