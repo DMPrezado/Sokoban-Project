@@ -3,7 +3,6 @@ package pt.iscte.poo.sokobanstarter.elements;
 import pt.iscte.poo.sokobanstarter.GameElement;
 import pt.iscte.poo.sokobanstarter.GameEngine;
 import pt.iscte.poo.sokobanstarter.interfaces.Interactable;
-import pt.iscte.poo.sokobanstarter.interfaces.Pickable;
 import pt.iscte.poo.utils.Direction;
 import pt.iscte.poo.utils.Point2D;
 

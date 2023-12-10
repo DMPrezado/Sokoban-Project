@@ -41,9 +41,12 @@ public class GameEngine implements Observer {
 
 		gui = ImageMatrixGUI.getInstance(); 
 		String nome = gui.askUser("Username");
+		if(nome == null)System.exit(0);
 		player = new Player(nome, 0);
 		
-		levelInit(Integer.valueOf(gui.askUser("Nível Inicial")));
+		String level = gui.askUser("Nível Inicial");
+		if(level == null)System.exit(0);
+		levelInit(Integer.valueOf(level));
 		
 		gui.setSize(GRID_HEIGHT, GRID_WIDTH);
 		gui.registerObserver(this); 
@@ -75,8 +78,16 @@ public class GameEngine implements Observer {
 	@Override
 	public void update(Observed source) {
 		if(source!=null) {
+			
 			lastKeyPressed = gui.keyPressed();
-			if(lastKeyPressed==81)levelFailed();//Letra Q
+			if(lastKeyPressed==27)System.exit(0);		//Tecla ESC - Para encerrar o Jogo
+			if(lastKeyPressed==82)levelFailed();		//Tecla R   - Reiniciar o nivel
+			if(lastKeyPressed==81) {					//Letra Q   - Escolher o nível
+				String level = gui.askUser("Nível");
+				if(level == null)System.exit(0);
+				levelInit(Integer.valueOf(level));
+			}	
+			
 			if(Direction.isDirection(lastKeyPressed))
 				bobcat.move(Direction.directionFor(lastKeyPressed));
 		}

@@ -1,0 +1,2 @@
+HIGHSCORES
+t,16
