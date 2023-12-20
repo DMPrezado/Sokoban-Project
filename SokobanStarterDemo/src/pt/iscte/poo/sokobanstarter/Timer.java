@@ -30,6 +30,7 @@ public class Timer {
 	private void zero() {
 		if(seconds == 0)
 			stop();
+		GameEngine.getInstance().levelFailed(); //Faltava esta linha quando entreguei
 	}
 	
 	public Thread getThread() {return thread;}

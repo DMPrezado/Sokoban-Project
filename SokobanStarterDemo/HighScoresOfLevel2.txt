@@ -1,0 +1,2 @@
+HIGHSCORES
+g,71

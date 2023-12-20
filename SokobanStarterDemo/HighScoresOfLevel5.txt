@@ -1,2 +1,4 @@
 HIGHSCORES
 t,44
+f,44
+g,52

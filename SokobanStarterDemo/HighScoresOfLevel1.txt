@@ -1,2 +1,3 @@
 HIGHSCORES
 t,21
+mrad,26
